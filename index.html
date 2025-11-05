@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>WebTech Worksheets 1–5 – Selçuk Aksoy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    /* ===== Global / Worksheet 4 separation of content & style ===== */
+    :root {
+      --green-dark: #1f5c3d;
+      --grey-box: #e0e0e0;
+      --accent: #0b7285;
+      --body-bg: #f5f5f5;
+      --text: #222;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: var(--body-bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 20px; /* used in WS5 example: inherited padding */
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 1rem;
+      padding: 1rem;
+    }
+
+    header h1 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.4rem;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 1rem;
+    }
+
+    /* ===== Worksheet 5 link pseudo-classes ===== */
+    nav a:link {
+      color: #0044cc;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a:visited {
+      color: #551a8b;
+    }
+    nav a:hover {
+      color: #00aa88;
+      text-decoration: underline;
+    }
+    nav a:active {
+      color: #ff6600;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      gap: 2rem;
+    }
+
+    section {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    /* ===== Worksheet 3: CV in table ===== */
+    .cv-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .cv-table th,
+    .cv-table td {
+      border: 1px solid #ccc;
+      padding: 0.5rem;
+      vertical-align: top;
+    }
+    .cv-table th {
+      background: #f0f0f0;
+      text-align: left;
+      width: 20%;
+    }
+
+    /* ===== Worksheet 4: two-column CV layout idea ===== */
+    .cv-columns {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .cv-left {
+      flex: 0 0 250px;
+      background: #f3f8f4;
+      padding: 1rem;
+      border-radius: 4px;
+    }
+    .cv-right {
+      flex: 1 1 300px;
+    }
+    .profile-img {
+      width: 100%;
+      max-width: 180px;
+      border-radius: 4px;
+      display: block;
+      margin-bottom: 1rem;
+      background: #ddd;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    /* ===== Worksheet 5: recipe formatting, specificity & hsla ===== */
+    .recipe-heading {
+      background: var(--green-dark);
+      color: #fff;
+      padding: 20px; /* inherited idea shown here */
+      border-radius: 4px 4px 0 0;
+      margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+    }
+    .recipe-box {
+      background: var(--grey-box);
+      padding: 1rem;
+      border-radius: 4px;
+    }
+    .recipe-intro {
+      background: #ffe38a;
+      padding: 0.75rem 1rem;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+    .recipe-ingredients {
+      background: hsla(150, 40%, 90%, 0.5);
+      padding: 0.75rem 1rem;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+    .recipe-steps {
+      background: hsla(210, 40%, 90%, 0.5);
+      padding: 0.75rem 1rem;
+      border-radius: 4px;
+    }
+
+    /* ===== Forms (Worksheet 3) ===== */
+    form {
+      display: grid;
+      gap: 0.75rem;
+      max-width: 500px;
+    }
+    label {
+      font-weight: 600;
+    }
+    input, textarea, select {
+      padding: 0.4rem 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font: inherit;
+    }
+    button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+
+    /* ===== Contact map ===== */
+    .map-wrapper iframe {
+      width: 100%;
+      min-height: 300px;
+      border: 0;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 700px) {
+      nav ul {
+        flex-wrap: wrap;
+      }
+      .cv-columns {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Web-based Technologies – Worksheets 1–5</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Start</a></li>
+        <li><a href="#portfolio">Portfolio (WS2)</a></li>
+        <li><a href="#cv">CV & Forms (WS3)</a></li>
+        <li><a href="#recipe">Favourite Recipe (WS4–5)</a></li>
+        <li><a href="#contact">Contact & Map (WS4)</a></li>
+        <li><a href="#notes">Web Tech Notes (WS1)</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Worksheet 2: basic portfolio content -->
+    <section id="home">
+      <h2>Start Page</h2>
+      <p>This is the consolidated demonstration page for Worksheets 1–5. It shows HTML structure, forms, table-based CV, CSS styling, and link states in one place.</p>
+      <p>The navigation above corresponds to the tasks from the worksheets.</p>
+    </section>
+
+    <section id="portfolio">
+      <h2>My Portfolio (Worksheet 2)</h2>
+      <p>Hello, I am Selçuk Aksoy. This section represents the portfolio page created in Worksheet 2.</p>
+      <p>
+        <a href="https://github.com/Cukowski/My-Portfolio" target="_blank">GitHub Repository</a> |
+        <a href="https://cukowski.github.io/My-Portfolio/" target="_blank">Live Prototype</a>
+      </p>
+      <figure>
+        <img src="foto.jpg" alt="Portrait of Selçuk Aksoy" style="max-width:200px;">
+        <figcaption>Clicking the image in the original WS2 page would open a larger version or more info.</figcaption>
+      </figure>
+      <p>Where I come from:</p>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2520.680412314952!2d8.207!3d48.048!2m3!1f0!2f0!3f0!3m2!1sen!2sde!4v0000000000"
+        width="100%" height="250" style="border:0;" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="My location"></iframe>
+      <p>Interests: software engineering, educational web apps, GPU programming.</p>
+    </section>
+
+    <!-- Worksheet 3: CV in table, registration form, login form -->
+    <section id="cv">
+      <h2>CV and Forms (Worksheet 3)</h2>
+
+      <div class="cv-columns">
+        <div class="cv-left">
+          <img src="foto.jpg" alt="Profile photo" class="profile-img">
+          <h3>Personal</h3>
+          <p>Name: Selçuk Aksoy</p>
+          <p>Location: Furtwangen, Germany</p>
+          <p>Languages: German (B2), English (C1), Turkish (native)</p>
+        </div>
+        <div class="cv-right">
+          <h3>CV (table version)</h3>
+          <table class="cv-table">
+            <tr>
+              <th>Summary</th>
+              <td>Software engineering student with interest in web technologies and GPU-based applications.</td>
+            </tr>
+            <tr>
+              <th rowspan="2">Experience</th>
+              <td>Working student at enGits GmbH – web and CFD-related tooling.</td>
+            </tr>
+            <tr>
+              <td>Student projects at HFU and Amsterdam Tech.</td>
+            </tr>
+            <tr>
+              <th>Education</th>
+              <td>International Business Information Systems (B.Sc.), HFU</td>
+            </tr>
+            <tr>
+              <th>Skills</th>
+              <td>HTML, CSS, JS, C/C++, Git, Linux, basic CUDA</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <h3>Registration Form (HTML only)</h3>
+      <form>
+        <label for="reg-name">Full name</label>
+        <input id="reg-name" name="reg-name" type="text" required>
+
+        <label for="reg-email">Email</label>
+        <input id="reg-email" name="reg-email" type="email" required>
+
+        <label for="reg-interest">Subject / Interest</label>
+        <select id="reg-interest" name="reg-interest">
+          <option>General contact</option>
+          <option>Project inquiry</option>
+          <option>Collaboration</option>
+        </select>
+
+        <label for="reg-msg">Message</label>
+        <textarea id="reg-msg" name="reg-msg" rows="3"></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+
+      <h3>Login Form</h3>
+      <form>
+        <label for="login-user">Username</label>
+        <input id="login-user" name="login-user" type="text" required>
+
+        <label for="login-pass">Password</label>
+        <input id="login-pass" name="login-pass" type="password" required>
+
+        <button type="submit">Login</button>
+        <p><a href="#forgot">Forgot password?</a> If the user forgets the password, the link can lead to a separate HTML page or mailto link for reset (HTML-only solution).</p>
+      </form>
+    </section>
+
+    <!-- Worksheet 4–5: recipe page with CSS, specificity, hsla -->
+    <section id="recipe">
+      <div class="recipe-heading">
+        <h2>Favourite Recipe (Worksheet 4–5)</h2>
+      </div>
+      <div class="recipe-box">
+        <p class="recipe-intro">
+          This is a sample recipe layout to demonstrate padding, background colors, and inheritance. The first paragraph uses a highlighted background as required.
+        </p>
+
+        <div class="recipe-ingredients">
+          <h3>Ingredients</h3>
+          <ul>
+            <li>200 g pasta</li>
+            <li>1 tbsp olive oil</li>
+            <li>1 clove garlic</li>
+            <li>Fresh basil</li>
+            <li>Salt and pepper</li>
+          </ul>
+        </div>
+
+        <div class="recipe-steps">
+          <h3>Preparation</h3>
+          <ol>
+            <li>Boil pasta in salted water.</li>
+            <li>Sauté garlic in olive oil.</li>
+            <li>Mix pasta with garlic and herbs.</li>
+            <li>Season to taste and serve warm.</li>
+          </ol>
+        </div>
+      </div>
+      <p>Navigation links above are also styled with pseudo-classes to show visited, hover, and active states.</p>
+    </section>
+
+    <!-- Worksheet 4: Contact page with Google Map -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>You can reach me via email: <a href="mailto:selcuk@example.com">selcuk@example.com</a></p>
+      <form>
+        <label for="c-name">Your name</label>
+        <input id="c-name" name="c-name" type="text">
+
+        <label for="c-email">Your email</label>
+        <input id="c-email" name="c-email" type="email">
+
+        <label for="c-msg">Message</label>
+        <textarea id="c-msg" name="c-msg" rows="4"></textarea>
+
+        <button type="submit">Send message</button>
+      </form>
+      <h3>My Location</h3>
+      <div class="map-wrapper">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2520.680412314952!2d8.207!3d48.048!2m3!1f0!2f0!3f0!3m2!1sen!2sde!4v0000000000"
+          loading="lazy"
+          title="Map to my location"></iframe>
+      </div>
+    </section>
+
+    <!-- Worksheet 1: web tech notes -->
+    <section id="notes">
+      <h2>Web Tech Notes (Worksheet 1)</h2>
+      <h3>IPv4 vs IPv6</h3>
+      <p><strong>IPv4:</strong> 32-bit, dotted decimal, e.g. 203.0.113.42</p>
+      <p><strong>IPv6:</strong> 128-bit, colon-separated, e.g. 2001:db8:85a3::8a2e:370:7334</p>
+
+      <h3>Why IPv6</h3>
+      <ul>
+        <li>Address exhaustion in IPv4</li>
+        <li>Better end-to-end connectivity</li>
+        <li>Modern features (autoconfiguration, IPsec support)</li>
+      </ul>
+
+      <h3>Hosting Providers in Germany</h3>
+      <ul>
+        <li>Hetzner</li>
+        <li>Strato</li>
+        <li>All-Inkl</li>
+        <li>IONOS</li>
+      </ul>
+
+      <h3>Accessibility Tools</h3>
+      <p>NVDA (Windows), VoiceOver (macOS), Orca (Linux).</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Selçuk Aksoy — Web-based Technologies (HFU)</p>
+  </footer>
+</body>
+</html>
